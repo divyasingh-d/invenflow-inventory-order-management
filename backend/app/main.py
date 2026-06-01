@@ -113,4 +113,28 @@ def root():
 @app.get("/health", tags=["Health"])
 def health_check():
     """Detailed health check."""
-    return {"status": "ok", "version": settings.APP_VERSION}
+    import traceback
+    from app.database import SessionLocal
+    db_status = "ok"
+    db_error = None
+    tables = []
+    try:
+        from sqlalchemy import text, inspect
+        from app.database import engine
+        db = SessionLocal()
+        db.execute(text("SELECT 1")).fetchone()
+        
+        inspector = inspect(engine)
+        tables = inspector.get_table_names()
+        db.close()
+    except Exception as e:
+        db_status = "error"
+        db_error = f"{type(e).__name__}: {str(e)}\n{traceback.format_exc()}"
+        
+    return {
+        "status": "ok", 
+        "version": settings.APP_VERSION,
+        "database": db_status,
+        "database_error": db_error,
+        "tables": tables
+    }
