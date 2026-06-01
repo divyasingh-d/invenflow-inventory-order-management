@@ -50,7 +50,7 @@ services:
       # Format: https://your-project-name.vercel.app
       # You can also update this in the Render dashboard under Environment
       - key: ALLOWED_ORIGINS
-        value: "https://invenflow.vercel.app,https://invenflow-frontend.vercel.app,http://localhost:5173,http://localhost:3000"
+        value: "https://frontend-theta-six-22.vercel.app,https://frontend-kxqw913xm-divyasingh969692-3471s-projects.vercel.app,http://localhost:5173"
 
 # ── PostgreSQL Database ──────────────────────────────────────────
 databases:
