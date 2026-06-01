@@ -6,3 +6,8 @@ __pycache__/
 .DS_Store
 .idea/
 .vscode/
+# SQLite local development databases
+*.db
+*.db-shm
+*.db-wal
+
