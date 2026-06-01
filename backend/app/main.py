@@ -118,6 +118,7 @@ def health_check():
     db_status = "ok"
     db_error = None
     tables = []
+    columns_info = {}
     try:
         from sqlalchemy import text, inspect
         from app.database import engine
@@ -126,6 +127,12 @@ def health_check():
         
         inspector = inspect(engine)
         tables = inspector.get_table_names()
+        
+        for table in tables:
+            columns_info[table] = [
+                {"name": col["name"], "type": str(col["type"])}
+                for col in inspector.get_columns(table)
+            ]
         db.close()
     except Exception as e:
         db_status = "error"
@@ -136,5 +143,6 @@ def health_check():
         "version": settings.APP_VERSION,
         "database": db_status,
         "database_error": db_error,
-        "tables": tables
+        "tables": tables,
+        "columns": columns_info
     }
