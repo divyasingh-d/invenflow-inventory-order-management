@@ -37,10 +37,7 @@
       ]
     }
   ],
-  "env": [
-    {
-      "key": "VITE_API_URL",
-      "value": "https://invenflow-backend.onrender.com"
-    }
-  ]
+  "env": {
+    "VITE_API_URL": "https://invenflow-backend.onrender.com"
+  }
 }
