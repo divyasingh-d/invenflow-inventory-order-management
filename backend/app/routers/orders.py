@@ -30,8 +30,14 @@ def create_order(order_in: OrderCreate, db: Session = Depends(get_db)):
             detail=f"Customer with id={order_in.customer_id} not found."
         )
 
-    # Validate product exists
-    product = db.query(Product).filter(Product.id == order_in.product_id).with_for_update().first()
+    # Validate product exists — use FOR UPDATE lock on PostgreSQL to prevent race conditions,
+    # skip on SQLite (which uses WAL + file locking instead)
+    from app.database import engine as _engine
+    _is_sqlite = _engine.url.drivername.startswith("sqlite")
+    _product_q = db.query(Product).filter(Product.id == order_in.product_id)
+    if not _is_sqlite:
+        _product_q = _product_q.with_for_update()
+    product = _product_q.first()
     if not product:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
