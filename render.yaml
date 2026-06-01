@@ -1,21 +1,63 @@
-# Render deployment configuration
+# ══════════════════════════════════════════════════════════════════
+#  InvenFlow — Render Blueprint (Infrastructure as Code)
+#  Docs: https://render.com/docs/blueprint-spec
+#
+#  HOW TO DEPLOY:
+#    1. Push this repo to GitHub
+#    2. Go to dashboard.render.com → New → Blueprint
+#    3. Connect your GitHub repository
+#    4. Render auto-detects this file and creates:
+#         - PostgreSQL database (invenflow-db)
+#         - Web Service (invenflow-backend)
+#    5. Click "Apply" — deployment starts automatically
+# ══════════════════════════════════════════════════════════════════
+
 services:
+  # ── FastAPI Backend Web Service ─────────────────────────────────
   - type: web
     name: invenflow-backend
     runtime: python
     rootDir: backend
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "uvicorn app.main:app --host 0.0.0.0 --port $PORT"
     plan: free
+    region: oregon
+
+    # Build: install dependencies
+    buildCommand: "pip install --no-cache-dir -r requirements.txt"
+
+    # Start: Render injects $PORT automatically (10000 on free tier)
+    startCommand: "uvicorn app.main:app --host 0.0.0.0 --port $PORT --workers 1"
+
+    # Render checks this path after deploy to confirm it's healthy
+    healthCheckPath: /health
+
     envVars:
+      # DATABASE_URL is automatically injected from the PostgreSQL database below
       - key: DATABASE_URL
-        sync: false
-      - key: DEBUG
-        value: "false"
-      - key: ALLOWED_ORIGINS
-        sync: false
+        fromDatabase:
+          name: invenflow-db
+          property: connectionString
+
       - key: APP_NAME
         value: "InvenFlow API"
+
       - key: APP_VERSION
         value: "1.0.0"
-    healthCheckPath: /health
+
+      - key: DEBUG
+        value: "false"
+
+      # IMPORTANT: Update this value after getting your Vercel frontend URL
+      # Format: https://your-project-name.vercel.app
+      # You can also update this in the Render dashboard under Environment
+      - key: ALLOWED_ORIGINS
+        value: "https://invenflow.vercel.app,https://invenflow-frontend.vercel.app,http://localhost:5173,http://localhost:3000"
+
+# ── PostgreSQL Database ──────────────────────────────────────────
+databases:
+  - name: invenflow-db
+    databaseName: inventory_db
+    user: invenflow_user
+    plan: free
+    region: oregon
+    # Free tier: 256MB RAM, 1GB storage, auto-suspended after 90 days inactivity
+    # Upgrade to Starter ($7/mo) for always-on database in production

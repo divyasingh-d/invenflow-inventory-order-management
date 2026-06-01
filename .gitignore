@@ -1,13 +1,44 @@
+# ── Environment files ────────────────────────────────────────────
 .env
 *.env
 !.env.example
+backend/.env
+
+# ── Python ───────────────────────────────────────────────────────
 __pycache__/
 *.pyc
-.DS_Store
-.idea/
-.vscode/
-# SQLite local development databases
+*.pyo
+*.pyd
+*.pyw
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+*.log
+
+# ── SQLite local development databases ───────────────────────────
 *.db
 *.db-shm
 *.db-wal
 
+# ── Node / Frontend ──────────────────────────────────────────────
+frontend/node_modules/
+frontend/.env
+frontend/.env.local
+frontend/.env.production
+
+# ── IDE / Editor ─────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db

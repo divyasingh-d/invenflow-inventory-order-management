@@ -20,3 +20,13 @@ build/
 .coverage
 htmlcov/
 *.log
+# SQLite local dev databases — never in production image
+*.db
+*.db-shm
+*.db-wal
+# Dev/test scripts
+validate.py
+test_*.py
+# IDE files
+.vscode/
+.idea/
