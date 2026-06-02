@@ -18,13 +18,11 @@ A production-ready, full-stack **Inventory and Order Management System** built w
 
 | Service | URL |
 |---------|-----|
-| **Frontend** | https://invenflow.vercel.app *(deploy yours)* |
-| **Backend API** | https://invenflow-api.onrender.com *(deploy yours)* |
-| **Swagger Docs** | https://invenflow-api.onrender.com/docs |
-| **Docker Hub** | https://hub.docker.com/r/youruser/invenflow-backend |
-
----
-
+| Frontend | https://frontend-theta-six-22.vercel.app/ |
+| Backend API | https://invenflow-inventory-order-management.onrender.com |
+| Health Check | https://invenflow-inventory-order-management.onrender.com/health |
+| Docker Hub | https://hub.docker.com/r/divyasingh969692/invenflow-inventory-order-management |
+| GitHub Repository | https://github.com/divyasingh-d/invenflow-inventory-order-management |
 ## ✨ Features
 
 ### Products
