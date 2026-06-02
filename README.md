@@ -11,33 +11,7 @@
 | Docker Hub Image            | https://hub.docker.com/r/divyasingh969692/invenflow-inventory-order-management |
 | GitHub Repository           | https://github.com/divyasingh-d/invenflow-inventory-order-management           |
 
-### 🔗 Quick Links
 
-**Frontend**
-
-* https://frontend-theta-six-22.vercel.app/
-
-**Backend API**
-
-* https://invenflow-inventory-order-management.onrender.com
-
-**Swagger API Docs**
-
-* https://invenflow-inventory-order-management.onrender.com/docs
-
-**Health Check**
-
-* https://invenflow-inventory-order-management.onrender.com/health
-
-**Docker Hub**
-
-* https://hub.docker.com/r/divyasingh969692/invenflow-inventory-order-management
-
-**GitHub Repository**
-
-* https://github.com/divyasingh-d/invenflow-inventory-order-management
-
----
 
 ### 🛠 Deployment Stack
 
