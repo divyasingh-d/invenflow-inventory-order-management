@@ -1,28 +1,52 @@
-# InvenFlow — Inventory & Order Management System
+## 🚀 Live Deployment
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.111-green.svg)](https://fastapi.tiangolo.com)
-[![React](https://img.shields.io/badge/React-18-blue.svg)](https://reactjs.org)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-blue.svg)](https://www.postgresql.org)
-[![Docker](https://img.shields.io/badge/Docker-Compose-blue.svg)](https://docs.docker.com/compose)
+### 🌐 Production URLs
 
-A production-ready, full-stack **Inventory and Order Management System** built with:
-- **Backend**: FastAPI (Python) + SQLAlchemy + PostgreSQL
-- **Frontend**: React + Vite + JavaScript
-- **Containerization**: Docker + Docker Compose
-- **Deployment**: Vercel (frontend) + Render (backend) + Docker Hub (image)
+| Service                     | URL                                                                            |
+| --------------------------- | ------------------------------------------------------------------------------ |
+| Frontend Application        | https://frontend-theta-six-22.vercel.app/                                      |
+| Backend API                 | https://invenflow-inventory-order-management.onrender.com                      |
+| API Documentation (Swagger) | https://invenflow-inventory-order-management.onrender.com/docs                 |
+| Health Check Endpoint       | https://invenflow-inventory-order-management.onrender.com/health               |
+| Docker Hub Image            | https://hub.docker.com/r/divyasingh969692/invenflow-inventory-order-management |
+| GitHub Repository           | https://github.com/divyasingh-d/invenflow-inventory-order-management           |
+
+### 🔗 Quick Links
+
+**Frontend**
+
+* https://frontend-theta-six-22.vercel.app/
+
+**Backend API**
+
+* https://invenflow-inventory-order-management.onrender.com
+
+**Swagger API Docs**
+
+* https://invenflow-inventory-order-management.onrender.com/docs
+
+**Health Check**
+
+* https://invenflow-inventory-order-management.onrender.com/health
+
+**Docker Hub**
+
+* https://hub.docker.com/r/divyasingh969692/invenflow-inventory-order-management
+
+**GitHub Repository**
+
+* https://github.com/divyasingh-d/invenflow-inventory-order-management
 
 ---
 
-## 🚀 Live Demo
+### 🛠 Deployment Stack
 
-| Service | URL |
-|---------|-----|
-| Frontend | https://frontend-theta-six-22.vercel.app/ |
-| Backend API | https://invenflow-inventory-order-management.onrender.com |
-| Health Check | https://invenflow-inventory-order-management.onrender.com/health |
-| Docker Hub | https://hub.docker.com/r/divyasingh969692/invenflow-inventory-order-management |
-| GitHub Repository | https://github.com/divyasingh-d/invenflow-inventory-order-management |
+* Frontend Hosting: Vercel
+* Backend Hosting: Render
+* Database: PostgreSQL (Render)
+* Container Registry: Docker Hub
+* CI/CD: GitHub Actions
+
 ## ✨ Features
 
 ### Products
